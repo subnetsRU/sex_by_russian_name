@@ -1,5 +1,7 @@
-Javascript-библиотека для определения пола по фамилии, имени, отчеству на русском языке
+Javascript-библиотека и PHP class для определения пола по фамилии, имени, отчеству на русском языке
 =======================================================================================
+Javascript версия
+------------------
 
 [Демо](http://vadimiztveri.github.io/)
 
@@ -103,3 +105,34 @@ sex_by_russian_name является бесплатным ПО, подробно
 Благодарность:
 * [Александр Борисов](https://github.com/aishek)
 * [Кирилл Храпков](https://github.com/cubbiu)
+
+PHP версия
+----------
+Примеры:
+
+```php
+$sex = new SexByRussianName("Николаев","Дмитрий","Сергеевич");
+var_dump($sex->get_gender());
+```
+```php
+$sex = new SexByRussianName(false,"Дмитрий","Сергеевич");
+var_dump($sex->get_gender());
+```
+```php
+$sex = new SexByRussianName(false,false,"Сергеевич");
+var_dump($sex->get_gender());
+```
+Либо:
+```php
+$sex = new SexByRussianName();
+$sex->surname = "Николаев";
+$sex->name = "Дмитрий";
+$sex->middlename = "Сергеевич";
+var_dump($sex->get_gender());
+```
+Возврат:
+* 0 - не определен;
+* 1 - мужской пол;
+* 2 - женский пол;
+
+Автор: Николаев Дмитрий
